@@ -12,7 +12,12 @@ const jobTypes = [
   "Contract",
 ]
 
-const Welcome = () => {
+const Welcome = ({
+  searchedTerm,
+  setSearchedTerm,
+  handleClick
+}) => {
+  // console.log(searchedTerm)
   const router = useRouter()
   const [activeJobType, setActiveJobType] = useState('Full Time')
   return (
@@ -31,14 +36,14 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=''
-            onChange={() => {}}
+            value={searchedTerm}
+            onChangeText={(text) => setSearchedTerm(text)}
             placeholder='Search for jobs'
           />
         </View>
         <TouchableOpacity
           style={styles.searchBtn}
-          onPress={() =>{}}
+          onPress={handleClick}
         >
           <Image source={icons.search} 
             resizeMode='contain'
